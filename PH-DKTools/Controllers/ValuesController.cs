@@ -19,7 +19,7 @@ namespace PH_DKTools.Controllers
         // GET api/values/5
         public string Get(int id)
         {
-            return "value";
+            return "value for id " + id;
         }
 
         // POST api/values

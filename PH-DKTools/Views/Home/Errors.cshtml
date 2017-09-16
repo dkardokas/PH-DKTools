@@ -1,0 +1,54 @@
+﻿@model IEnumerable<PH_DKTools.Models.ErrorModel>
+
+@section scripts{
+    <script src="~/Scripts/App/ErrorViewControls.js"></script>
+}
+
+@{
+    ViewBag.Title = "Errors";
+}
+
+<h2>Errors</h2>
+
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Severity)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Message)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TimeOccured)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Severity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Message)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeOccured)
+            </td>
+            <td>
+                <a href="#" class="dkt-api-action" data-action="@Url.HttpRouteUrl("DefaultApi", new { controller = "Values",  id = item.Id })"><span class="glyphicon glyphicon-repeat"></span></a>
+            </td>
+        </tr>
+    }
+
+
+</table>
+
+<div id="jq-output"></div>
